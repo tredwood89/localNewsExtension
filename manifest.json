@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Local News Extension",
+  "version": "1.0",
+  "description": "Get news articles from local news outlets to one place",
+
+  "background": {
+      "scripts": [
+        "background.js"
+      ],
+      "persistent": false
+    },
+
+    "content_scripts":[
+      {
+        "matches":["https://www2.myngp.com/*"],
+        "js":[
+          "content.js",
+          "jquery-3.3.1.min.js"
+        ]
+      }
+    ],
+
+  "icons": {
+    "128": "newsicon.png"
+  },
+
+  "browser_action": {
+    "default_title":"Local News tool",
+    "default_icon": "newsicon.png"
+  },
+
+  "permissions": [
+    "webNavigation"
+  ]
+}
