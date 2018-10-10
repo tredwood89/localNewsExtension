@@ -27,10 +27,12 @@
 
   "browser_action": {
     "default_title":"Local News tool",
-    "default_icon": "newsicon.png"
+    "default_icon": "newsicon.png",
+    "default_popup": "popup.html"
   },
 
   "permissions": [
+    "storage",
     "webNavigation"
   ]
 }
