@@ -8,9 +8,9 @@ $(function(){
   })
 
  $('#getCandidateName').click(function(){
-   chrome.storage.sync.set({'candidateName': candidateName}), function(){
+   chrome.storage.sync.set({'candidateName': candidateName}, function(){
      alert('stored'+ candidateName)
-   }
+   })
 
 
  })
