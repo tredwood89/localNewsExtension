@@ -1,5 +1,5 @@
 $(function(){
-
+   // do we need a separate category for first and last name?
   let candidateName = ''
 
 
