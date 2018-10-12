@@ -6,30 +6,31 @@
 // )
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
-    if(request.candidateSearchInit === "initSearch") {
-      chrome.storage.sync.get(['candidateFirstName', 'candidateLastName'], function (data) {
-        let firstName = data.candidateFirstName
-        let lastName = data.candidateLastName
-        chrome.tabs.create({url: `https://www.queryly.com/timestribune_search.htm?q=${firstName}%20${lastName}`});
-
-      })
-      // alert("submit clicked")
-      // candidateId is not recognized on this file
-      // chrome.tabs.create({url: 'https://www.queryly.com/timestribune_search.htm?q=' + candidateId});
-
-    }
-
+    alert(request.candidateSearchInit);
+    // if(request.candidateSearchInit === "initSearch") {
+    //   chrome.storage.sync.get(['candidateFirstName', 'candidateLastName'], function (data) {
+    //     let firstName = data.candidateFirstName
+    //     let lastName = data.candidateLastName
+    //
+    //     // if user selects times tribune
+    //     chrome.tabs.create({url: `https://www.queryly.com/timestribune_search.htm?q=${firstName}%20${lastName}`});
+    //     // if user selects daily Local
+    //     // chrome.tabs.create({url: `https://www.dailylocal.com/search/?sd=desc&l=25&sort=relevance&f=html&t=article%2Cvideo%2Cyoutube%2Ccollection&app=editorial&nsa=eedition&q=${firstName}+${lastName}`});
+    //     // if user selects chester county press
+    //     // chrome.tabs.create({url: `http://www.chestercounty.com/search?utf8=%E2%9C%93&q=${firstName}+${lastName}`})
+    //     // if user selects citizens voice
+    //     // chrome.tabs.create({url: `https://www.citizensvoice.com/search-7.810076?q=${firstName}+${lastName}&selecturl=`})
+    //     // if user selects times leader
+    //     // chrome.tabs.create({url: `https://www.timesleader.com/#/search;query=${firstName}%20${lastName}`})
+    //     // if user selects standard speaker
+    //     // need a login account to access the list of articles for standard speaker
+    //     // chrome.tabs.create({url: `https://www.standardspeaker.com/search-7.506128?q=${firstName}+${lastName}&selecturl=`})
+    //     // if user selects Wayne Independent
+    //     // chrome.tabs.create({url: `http://www.wayneindependent.com/search?text=${firstName}%20${lastName}`})
+    //     // if the user selects Pocono Record
+    //     // chrome.tabs.create({url: `http://www.poconorecord.com/search?text=${firstName}%20${lastName}`})
+    //     // if the user selects Pike Courier County
+    //     // chrome.tabs.create({url: `http://www.pikecountycourier.com/apps/pbcs.dll/search?crit=${firstName}+${lastName}&SearchCategory=%25&DateRange=&noblankcheck=0&BuildNavigators=1`})
+    //   })
+    // }
 })
-
-// daily local: https://www.dailylocal.com/search/?sd=desc&l=25&sort=relevance&f=html&t=article%2Cvideo%2Cyoutube%2Ccollection&app=editorial&nsa=eedition&q=chrissy+houlahan
-// citizen voice: https://www.citizensvoice.com/search-7.810076?q=matt+cartwright&selecturl=
-// citizen voice: https://www.citizensvoice.com/search-7.810076?q=john+chrin&selecturl=
-// times leader: https://www.timesleader.com/#/search;query=matt%20cartwright
-// times leader: https://www.timesleader.com/#/search;query=john%20chrin
-// need a login account to access the list of articles for standard speaker
-// standard speaker: https://www.standardspeaker.com/search-7.506128?q=matt+cartwright&selecturl=
-// standard speaker: https://www.standardspeaker.com/search-7.506128?q=john+chrin&selecturl=
-// Wayne Independent: http://www.wayneindependent.com/search?text=matt%20cartwright
-// Wayne Independent: http://www.wayneindependent.com/search?text=john%20chrin
-// Pocono Record: http://www.poconorecord.com/search?text=matt%20cartwright
-// Pocono Record: http://www.poconorecord.com/search?text=john%20chrin
