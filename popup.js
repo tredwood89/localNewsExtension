@@ -8,11 +8,20 @@ $(function(){
   })
 
   $('#getCandidateName').click(function(){
-    chrome.storage.sync.set({'candidateName': candidateName});
-     // alert('stored '+ candidateName)
-    chrome.runtime.sendMessage({candidateSearchInit: "initSearch"})
+    let firstName = candidateName.split(" ")[0]
+    let lastName = candidateName.split(" ")[1]
+    chrome.storage.sync.set({ 'candidateFirstName': firstName, 'candidateLastName': lastName }, function(){
+      // alert('stored '+ candidateName)
+      chrome.runtime.sendMessage({candidateSearchInit: "initSearch"})
+    })
+   })
 
-  })
+  // $('#getCandidateName').click(function(){
+  //   chrome.storage.sync.set({'candidateName': candidateName});
+  //    // alert('stored '+ candidateName)
+  //   chrome.runtime.sendMessage({candidateSearchInit: "initSearch"})
+  //
+  // })
 
 
 })

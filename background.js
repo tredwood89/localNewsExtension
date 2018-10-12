@@ -7,10 +7,16 @@
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     if(request.candidateSearchInit === "initSearch") {
+      chrome.storage.sync.get(['candidateFirstName', 'candidateLastName'], function (data) {
+        let firstName = data.candidateFirstName
+        let lastName = data.candidateLastName
+        chrome.tabs.create({url: `https://www.queryly.com/timestribune_search.htm?q=${firstName}%20${lastName}`});
+
+      })
       // alert("submit clicked")
       // candidateId is not recognized on this file
       // chrome.tabs.create({url: 'https://www.queryly.com/timestribune_search.htm?q=' + candidateId});
-      chrome.tabs.create({url: 'https://www.queryly.com/timestribune_search.htm?q=matt%20cartwright'});
+
     }
 
 })
