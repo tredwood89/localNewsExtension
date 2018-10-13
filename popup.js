@@ -23,6 +23,7 @@ $(function(){
     // })
     let firstName = candidateName.split(" ")[0]
     let lastName = candidateName.split(" ")[1]
+    chrome.runtime.sendMessage({"openNewWindow" : "initSearch"})
     chrome.storage.sync.set({ 'candidateFirstName': firstName, 'candidateLastName': lastName }, function(){
       // alert('stored '+ candidateName)
       let val = [];
