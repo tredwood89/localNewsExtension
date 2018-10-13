@@ -22,6 +22,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
       let wayneIndependentUrl = `http://www.wayneindependent.com/search?text=${firstName}%20${lastName}`
       let poconoRecordUrl = `http://www.poconorecord.com/search?text=${firstName}%20${lastName}`
       let pikeCountyCourierUrl = `http://www.pikecountycourier.com/apps/pbcs.dll/search?crit=${firstName}+${lastName}&SearchCategory=%25&DateRange=&noblankcheck=0&BuildNavigators=1`
+      let latestTwitterAlertsUrl = `https://twitter.com/search?f=tweets&vertical=default&q=${firstName}%20${lastName}&lang=en`
+      let latestYoutubeAlertsUrl = `https://www.youtube.com/results?search_query=${firstName}+${lastName}&sp=CAI%253D`
+      // let latestFacebookAlertsUrl= `https://www.facebook.com/search/top/?q=${firstName}%20${lastName}`
 
       switch( urlIdentifer ) {
 
@@ -52,7 +55,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
       case "pikeCountyCourier":
         chrome.tabs.create({url: pikeCountyCourierUrl });
         break
-
+      case "latestTwitterAlerts":
+        chrome.tabs.create({url: latestTwitterAlertsUrl });
+        break
+      case "latestYoutubeAlerts":
+        chrome.tabs.create({url: latestYoutubeAlertsUrl });
+        break
+      // case "latestFacebookAlerts":
+      //   chrome.tabs.create({url: latestFacebookAlertsUrl });
+      //   break
       default:
           console.log("done");;
      }
