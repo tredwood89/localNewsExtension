@@ -1,0 +1,52 @@
+h3 {
+  color: green;
+}
+
+#candidateId {
+    border-box: box-sizing;
+    /* background-image: url('searchicon.png'); */
+    /* background-position: 8em 6em; */
+    /* background-repeat: no-repeat; */
+    font-size: 12px;
+    /* padding: 14px 20px 12px 45px; */
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+#candidateId:focus {outline: 3px solid #ddd;}
+
+/* .dropdown {
+    position: relative;
+    display: inline-block;
+} */
+
+.searchBoxContainer {
+
+    position: absolute;
+    background-color: #f6f6f6;
+    /* min-width: 25px; */
+    overflow: auto;
+    border: .5px solid #ddd;
+    z-index: 1;
+    display: block;
+    position: relative;
+    display: inline-block;
+
+}
+
+.searchContent {
+  display: none;
+  color: black;
+  padding: 1px 1px;
+  text-decoration: none;
+      /* display: block; */
+}
+
+.searchContent p:hover {background-color: #ddd;}
+
+.searchContentOnKey {
+  color: black;
+  padding: 1px 1px;
+  text-decoration: none;
+  display: block;
+}

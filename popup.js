@@ -6,6 +6,8 @@ $(function(){
     candidateName = $(this).val()
   })
 
+
+
   $('#getCandidateName').click(function(){
     let firstName = candidateName.split(" ")[0]
     let lastName = candidateName.split(" ")[1]
@@ -21,3 +23,9 @@ $(function(){
    })
 
 })
+
+// $(function saveSearchTerms() {
+//     if ( chrome.storage.sync.get([{"savedSearch"}]){
+//       chrome.storage.sync.get
+//     })
+// })
