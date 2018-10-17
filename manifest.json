@@ -13,9 +13,8 @@
 
     "content_scripts":[
       {
-        "matches":["https://www2.myngp.com/*"],
+        "matches":["https://www.google.com/*"],
         "js":[
-          "content.js",
           "jquery-3.3.1.min.js"
         ]
       }
@@ -33,6 +32,6 @@
 
   "permissions": [
     "storage",
-    "webNavigation"
+    "tabs"
   ]
 }

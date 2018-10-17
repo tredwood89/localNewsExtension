@@ -23,9 +23,3 @@ $(function(){
    })
 
 })
-
-// $(function saveSearchTerms() {
-//     if ( chrome.storage.sync.get([{"savedSearch"}]){
-//       chrome.storage.sync.get
-//     })
-// })
