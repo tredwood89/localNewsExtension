@@ -10,55 +10,27 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
       let firstName = data.candidateFirstName
       let lastName = data.candidateLastName
       let urlIdentifer = request.candidateSearchInit
-      let timesTribuneUrl = `https://www.queryly.com/timestribune_search.htm?q=${firstName}%20${lastName}`
-      let dailyLocalUrl = `https://www.dailylocal.com/search/?sd=desc&l=25&sort=relevance&f=html&t=article%2Cvideo%2Cyoutube%2Ccollection&app=editorial&nsa=eedition&q=${firstName}+${lastName}`
-      let citizensVoiceUrl = `https://www.citizensvoice.com/search-7.810076?q=${firstName}+${lastName}&selecturl=`
-      let timesLeaderUrl = `https://www.timesleader.com/#/search;query=${firstName}%20${lastName}`
-      let standardSpeakerUrl = `https://www.standardspeaker.com/search-7.506128?q=${firstName}+${lastName}&selecturl=`
-      let wayneIndependentUrl = `http://www.wayneindependent.com/search?text=${firstName}%20${lastName}`
-      let poconoRecordUrl = `http://www.poconorecord.com/search?text=${firstName}%20${lastName}`
-      let pikeCountyCourierUrl = `http://www.pikecountycourier.com/apps/pbcs.dll/search?crit=${firstName}+${lastName}&SearchCategory=%25&DateRange=&noblankcheck=0&BuildNavigators=1`
-      let chesterCountyPressUrl = `http://www.chestercounty.com/search?utf8=%E2%9C%93&q=${firstName}+${lastName}`
-      let latestTwitterAlertsUrl = `https://twitter.com/search?f=tweets&vertical=default&q=${firstName}%20${lastName}&lang=en`
-      let latestFacebookAlertsUrl= `https://www.facebook.com/search/top/?q=${firstName}%20${lastName}`
 
-      switch( urlIdentifer ) {
-        case "timesTribune":
-          chrome.tabs.create({url: timesTribuneUrl });
-          break
-        case "dailyLocal":
-          chrome.tabs.create({url: dailyLocalUrl });
-          break;
-        case "citizensVoice":
-          chrome.tabs.create({url: citizensVoiceUrl });
-          break;
-        case "timesLeader":
-          chrome.tabs.create({url: timesLeaderUrl });
-          break;
-        case "standardSpeaker":
-          chrome.tabs.create({url: standardSpeakerUrl });
-          break;
-        case "wayneIndependent":
-          chrome.tabs.create({url: wayneIndependentUrl });
-          break;
-        case "poconoRecord":
-          chrome.tabs.create({url: poconoRecordUrl });
-          break;
-        case "pikeCountyCourier":
-          chrome.tabs.create({url: pikeCountyCourierUrl });
-          break
-        case "chesterCountyPress":
-          chrome.tabs.create({url: chesterCountyPressUrl });
-          break;
-        case "latestTwitterAlerts":
-          chrome.tabs.create({url: latestTwitterAlertsUrl });
-          break
-        case "latestFacebookAlerts":
-          chrome.tabs.create({url: latestFacebookAlertsUrl });
-          break
-        default:
-            console.log("done");;
-     }
+      let linksObject = {
+        timesTribune: `https://www.queryly.com/timestribune_search.htm?q=${firstName}%20${lastName}`,
+        dailyLocal: `https://www.dailylocal.com/search/?sd=desc&l=25&sort=relevance&f=html&t=article%2Cvideo%2Cyoutube%2Ccollection&app=editorial&nsa=eedition&q=${firstName}+${lastName}`,
+        citizensVoice: `https://www.citizensvoice.com/search-7.810076?q=${firstName}+${lastName}&selecturl=`,
+        timesLeader: `https://www.timesleader.com/#/search;query=${firstName}%20${lastName}`,
+        standardSpeaker: `https://www.standardspeaker.com/search-7.506128?q=${firstName}+${lastName}&selecturl=`,
+        wayneIndependent: `http://www.wayneindependent.com/search?text=${firstName}%20${lastName}`,
+        poconoRecord: `http://www.poconorecord.com/search?text=${firstName}%20${lastName}`,
+        pikeCountyCourier: `http://www.pikecountycourier.com/apps/pbcs.dll/search?crit=${firstName}+${lastName}&SearchCategory=%25&DateRange=&noblankcheck=0&BuildNavigators=1`,
+        chesterCountyPress : `http://www.chestercounty.com/search?utf8=%E2%9C%93&q=${firstName}+${lastName}`,
+        latestTwitterAlerts: `https://twitter.com/search?f=tweets&vertical=default&q=${firstName}%20${lastName}&lang=en`,
+        latestFacebookAlerts: `https://www.facebook.com/search/top/?q=${firstName}%20${lastName}`
+
+      }
+
+      function getUrl(identifier) {
+        chrome.tabs.create({url:linksObject[identifier]})
+      }
+
+      getUrl(urlIdentifer);
 
    })
  }
