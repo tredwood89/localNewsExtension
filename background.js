@@ -1,3 +1,4 @@
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if(request.openNewWindow === "initSearch") {
       console.log('open new window - to be continued');

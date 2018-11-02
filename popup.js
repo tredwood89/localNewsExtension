@@ -15,7 +15,15 @@ $(function(){
     if (!lastName) {
       lastName = " "
     }
-    
+
+    chrome.storage.sync.get(["savedSearch"], function(data){
+      let searchArr = data["savedSearch"] ? data["savedSearch"] : []
+
+      searchArr.push(candidateName)
+      chrome.storage.sync.set({"savedSearch":searchArr},
+    console.log(searchArr))
+    })
+
     chrome.runtime.sendMessage({"openNewWindow" : "initSearch"})
     chrome.storage.sync.set({ 'candidateFirstName': firstName, 'candidateLastName': lastName }, function(){
       let val = [];
@@ -26,5 +34,7 @@ $(function(){
 
     })
    })
+
+
 
 })
