@@ -11,6 +11,11 @@ $(function(){
   $('#getCandidateName').click(function(){
     let firstName = candidateName.split(" ")[0]
     let lastName = candidateName.split(" ")[1]
+
+    if (!lastName) {
+      lastName = " "
+    }
+    
     chrome.runtime.sendMessage({"openNewWindow" : "initSearch"})
     chrome.storage.sync.set({ 'candidateFirstName': firstName, 'candidateLastName': lastName }, function(){
       let val = [];
