@@ -15,7 +15,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
         timesTribune: `https://www.queryly.com/timestribune_search.htm?q=${firstName}%20${lastName}`,
         dailyLocal: `https://www.dailylocal.com/search/?sd=desc&l=25&sort=relevance&f=html&t=article%2Cvideo%2Cyoutube%2Ccollection&app=editorial&nsa=eedition&q=${firstName}+${lastName}`,
         citizensVoice: `https://www.citizensvoice.com/search-7.810076?q=${firstName}+${lastName}&selecturl=`,
-        timesLeader: `https://www.timesleader.com/#/search;query=${firstName}%20${lastName}`,
+        // timesLeader: `https://www.timesleader.com/#/search;query=${firstName}%20${lastName}`,
         standardSpeaker: `https://www.standardspeaker.com/search-7.506128?q=${firstName}+${lastName}&selecturl=`,
         wayneIndependent: `http://www.wayneindependent.com/search?text=${firstName}%20${lastName}`,
         poconoRecord: `http://www.poconorecord.com/search?text=${firstName}%20${lastName}`,
